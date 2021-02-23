@@ -11,7 +11,7 @@ function connection() {
   // axios
   axios({
     method: 'GET',
-    url: 'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95d89889601244a6a5754469720098b6'
+    url: 'http://newsapi.org/v2/top-headlines?country=co&category=business&apiKey=95d89889601244a6a5754469720098b6'
   }).then(res => {
     data = res.data.articles;
     this.articles = data.map( (article) => {
