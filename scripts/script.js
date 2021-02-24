@@ -116,72 +116,60 @@ document.getElementById('select-sections').addEventListener('change', () => {
 
 //validate contact form
 
-function validateForm1 () {
-  let firstName = document.getElementById('input__first-name');
-  let lastName = document.getElementById('input__last-name');
-  let email = document.getElementById('input__email');
-  let phone = document.getElementById('input__phone');
-  let comment = document.getElementById('input__comment');
-  border = `.style.border = '1px solid red'`;
-  noBorder = `.style.border = '1px solid #D3DBE7;'`;
-  if ((
-    (firstName.value.trim() == "") ||
-    (lastName.value.trim() == "") ||
-    (email.value.trim() == "") ||
-    (phone.value.trim() == "")  ||
-    (comment.value.trim() == "")
-  )){
-    // first name
-    if (firstName.value.trim() == ""){
-      firstName.style.border = '1px solid red';
-    } else {
-      firstName.style.border = '1px solid #D3DBE7';
-    }
-    //last name
-    if (lastName.value.trim() == ""){
-      lastName.style.border = '1px solid red';
-    } else {
-      lastName.style.border = '1px solid #D3DBE7';
-    }
-    //email
-    if (email.value.trim() == ""){
-      email.style.border = '1px solid red';
-    } else {
-      email.style.border = '1px solid #D3DBE7';
-    }
-    // phone
-    if (phone.value.trim() == ""){
-      phone.style.border = '1px solid red';
-    } else {
-      phone.style.border = '1px solid #D3DBE7';
-    }
-    // comment
-    if (comment.value.trim() == ""){
-      comment.style.border = '1px solid red';
-    } else {
-      comment.style.border = '1px solid #D3DBE7';
-      phone.style.border = '1px solid #D3DBE7';
-      email.style.border = '1px solid #D3DBE7';
-      lastName.style.border = '1px solid #D3DBE7';
-      firstName.style.border = '1px solid #D3DBE7';
-    }
+function validateEmptys () {
+  let firstName = document.getElementById('contact__firstName');
+  let lastName = document.getElementById('contact__lastName');
+  let email = document.getElementById('contact__email');
+  let phone = document.getElementById('contact__phone');
+  let comment = document.getElementById('contact__comment');
+  let checkbox = document.getElementById('sendNews');
+  // first name
+  if (firstName.value.trim() == ""){
+    firstName.style.border = '2px solid red';
   } else {
-    console.log('correcto');
-    comment.style.border = '1px solid #D3DBE7';
-    phone.style.border = '1px solid #D3DBE7';
-    email.style.border = '1px solid #D3DBE7';
-    lastName.style.border = '1px solid #D3DBE7';
-    firstName.style.border = '1px solid #D3DBE7';
+    firstName.style.border = '2px solid green';
+  }
+  //last name
+  if (lastName.value.trim() == ""){
+    lastName.style.border = '2px solid red';
+  } else {
+    lastName.style.border = '2px solid green';
+  }
+  //email
+  if (email.value.trim() == ""){
+    email.style.border = '2px solid red';
+  } else {
+    email.style.border = '2px solid green';
+  }
+  // phone
+  if (phone.value.trim() == ""){
+    phone.style.border = '2px solid red';
+  } else {
+    phone.style.border = '2px solid green';
+  }
+  if (comment.value.trim() == "" && comment.value.length <= 200){
+    comment.style.border = '2px solid red';
+  } else {
+    comment.style.border = '2px solid green';
+  }
+  if (!checkbox.checked){
+    checkbox.style.border = '2px solid red';
+    fields.checkbox = false;
+  } else {
+    checkbox.style.border = '2px solid green';
+    fields.checkbox = true;
   }
 }
 
 //validate form
 const form = document.getElementById('contact__form');
 const inputs = document.querySelectorAll('#contact__form input');
+const textareas = document.querySelectorAll('#contact__form textarea');
 const expressions = {
   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   phone: /^\d{7,14}$/,
+  comment: /^[a-zA-Z0-9_.+-@"' ]{1,300}$/,
 };
 
 const fields = {
@@ -207,6 +195,9 @@ const validateForm = (e) => {
     case "phone":
       validateField(expressions.phone, e.target, 'phone');
     break;
+    case "comment":
+      validateField(expressions.comment, e.target, 'comment');
+    break;
   }
 };
           
@@ -225,28 +216,27 @@ inputs.forEach((input) => {
   input.addEventListener('blur', validateForm);
 });
 
-function submit() {
-  const comment = document.getElementById('contact__comment');
-  if (comment.value.trim() == "" && comment.value.length <= 200){
-    comment.style.border = '2px solid red';
-    fields.comment = false;
-  } else {
-    comment.style.border = '2px solid green';
-    fields.comment = true;
-  }
-  const checkbox = document.getElementById('sendNews');
-  if (!checkbox.checked){
-    checkbox.style.border = '2px solid red';
-    fields.checkbox = false;
-  } else {
-    checkbox.style.border = '2px solid green';
-    fields.checkbox = true;
-  }
+textareas.forEach((input) => {
+  input.addEventListener('keyup', validateForm);
+  input.addEventListener('blur', validateForm);
+});
 
+const checkbox = document.getElementById('sendNews');
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    document.getElementById('asterisk').style.visibility = "hidden";
+    fields.checkbox = true;
+  } else {
+    document.getElementById('asterisk').style.visibility = "visible";
+    fields.checkbox = false;
+  }
+});
+
+function submit() {
+  validateEmptys();
   if(fields.firstName && fields.lastName && fields.email && fields.phone && fields.comment && fields.checkbox ){
     console.log('ok');
   } else {
     console.log('no');
   }
-  console.log('fields', fields);
 }
