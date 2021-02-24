@@ -35,7 +35,6 @@ function connection(apiUrl) {
 				});
 			});
 			allowsClicks = articles.length / 4 - 1;
-			// console.log('allow clicks', allowsClicks);
 			fillNews();
 			articles = [];
 		})
@@ -44,8 +43,6 @@ function connection(apiUrl) {
 
 //html data
 function fillNews() {
-	// console.log('data', data);
-	// console.log('articles', articles);
 	urls = document.getElementsByClassName('news__card-link');
 	images = document.getElementsByClassName('news__card-img');
 	titles = document.getElementsByClassName('news__card-title');
@@ -209,7 +206,6 @@ var fields = {
 const validateForm = (e) => {
 	switch (e.target.name) {
 		case 'firstName':
-			console.log('keydown');
 			validateField(expressions.name, e.target, 'firstName');
 			break;
 		case 'lastName':
@@ -258,7 +254,6 @@ checkbox.addEventListener('change', () => {
 		fields.checkbox = false;
 	}
 });
-console.log('hello');
 function submit() {
 	validateEmptys();
 	if (
@@ -276,12 +271,10 @@ function submit() {
 		document.getElementById('modal-box').classList.remove('modal__box--hidden');
 		fillModal();
 		document.body.style.overflow = 'hidden';
-		//mostrar modal
 	} else {
 		document
 			.getElementById('errorMsg')
 			.classList.remove('contact__error-msg--hidden');
-		console.log('no');
 	}
 }
 
