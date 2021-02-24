@@ -170,13 +170,75 @@
                 </div>
             </div>
         </form>
-        <div class="util__grid-x util__align-center">
+
+        <!-- error message -->
+        <div class="contact__error contact__error-msg--hidden" id="errorMsg">
+            <p class="contact__error-msg"> <b>Error:</b> Empty Fields </p>
+        </div>
+
+        <!-- submit button -->
+        <div class="contact__btn util__grid-x util__align-center">
             <button class="btn contact__btn-submit" type="submit" onclick="submit()">
                 <p class="contact__submit-txt">Submit form</p>
             </button>
-        </div>
+        </div>    
     </section>
+    <!-- modal -->
+    <div id="modal" class="modal modal--hidden">
+        <div class="modal__background"></div>
+        <div id="modal-box" class="modal__box util__grid-y modal__box--hidden">
+            <div class="util__grid-y modal__button">
+                <button onclick="closeModal()" class="modal__button-x">X</button>
+            </div>
+            <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ad delectus autem! Fugit earum iusto hic in exercitationem culpa minus a dignissimos, voluptate veniam accusamus nemo quaerat necessitatibus placeat obcaecati! -->
+            <div class="modal__content">
+                <p class="modal__title util__grid-x util__align-center">
+                    Form sent successfully
+                </p>
+                <div class="modal__info util__grid-y">
+                    <div class="util__grid-y util__align-center">
+                        <div class="util__grid-x">
+                            <p class="modal__info-item">Name</p>
+                            <p id="modalName" class="modal__info-item modal__info-item--thin">John</p>
+                        </div>
+                    </div>
 
+                    <div class="util__grid-x">
+                        <p class="modal__info-item">Last Name</p>
+                        <p id="modalLastName" class="modal__info-item modal__info-item--thin">Doe</p>
+                    </div>
+
+                    <div class="util__grid-x">
+                        <p class="modal__info-item">Email</p>
+                        <p id="modalEmail" class="modal__info-item modal__info-item--thin">email@emai.com</p>
+                    </div>
+
+                    <div class="util__grid-x">
+                        <p class="modal__info-item">Phone</p>
+                        <p id="modalPhone" class="modal__info-item modal__info-item--thin">322 407 9515</p>
+                    </div>
+
+                    <div>
+                        <p class="modal__info-item modal__info-comment">Comment</p>
+                        <p 
+                            id="modalComment"
+                            class="modal__info-item modal__info-item--comment"
+                        >
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et sint veniam 
+                            minus architecto sed laborum? Illum maiores dolores quidem veritatis, beatae 
+                            ad accusamus vitae, odio exercitationem incidunt nam dicta molestias!
+                        </p>
+                        <div class="util__grid-x util__align-center">
+                            <button id="modalDone" class="btn btn--done" onclick="done()">
+                                <p class="news__view-txt">Done</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- scripts -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts/script.js"></script>

@@ -86,6 +86,23 @@ function closeWelcome() {
   document.getElementById('welcome-alert').classList.add('welcome--hidden');
 }
 
+function showMore() {
+  cardsContainer = document.getElementsByClassName('news__cards')[0];
+  let elementStyle = window.getComputedStyle(cardsContainer);
+  let elementHeight = elementStyle.getPropertyValue('height');
+  if(firstClick) { this.heightIncrement = parseInt(elementHeight); }
+  firstClick = false;
+  let newHeight = parseInt(elementHeight);
+  newHeight += (this.heightIncrement + 120);
+
+  if(clicks < allowsClicks) {
+    cardsContainer.style.height = `${ newHeight }px`;
+    clicks ++;
+  } else {
+    alert('I dont have more news for you');
+  }
+}
+
 // change section
 document.getElementById('select-sections').addEventListener('change', () => {
   val = document.getElementById('select-sections').value;
@@ -115,7 +132,6 @@ document.getElementById('select-sections').addEventListener('change', () => {
 });
 
 //validate contact form
-
 function validateEmptys () {
   let firstName = document.getElementById('contact__firstName');
   let lastName = document.getElementById('contact__lastName');
@@ -169,10 +185,10 @@ const expressions = {
   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   phone: /^\d{7,14}$/,
-  comment: /^[a-zA-Z0-9_.+-@"' ]{1,300}$/,
+  comment: /^[a-zA-Z0-9_.+-@ !"'=()]{1,300}$/,
 };
 
-const fields = {
+var fields = {
   firstName: false,
   lastName: false,
   email: false,
@@ -184,6 +200,7 @@ const fields = {
 const validateForm = (e) => {
   switch (e.target.name) {
     case "firstName":
+      console.log('keydown');
       validateField(expressions.name, e.target, 'firstName');
     break;
     case "lastName":
@@ -235,8 +252,52 @@ checkbox.addEventListener('change', () => {
 function submit() {
   validateEmptys();
   if(fields.firstName && fields.lastName && fields.email && fields.phone && fields.comment && fields.checkbox ){
-    console.log('ok');
+    document.getElementById('errorMsg').classList.add('contact__error-msg--hidden');
+    document.getElementById('modal').classList.remove('modal--hidden');
+    document.getElementById('modal-box').classList.remove('modal__box--hidden');
+    fillModal();
+    document.body.style.overflow = 'hidden';
+    //mostrar modal
   } else {
+    document.getElementById('errorMsg').classList.remove('contact__error-msg--hidden');
     console.log('no');
   }
+}
+
+function fillModal() {
+  const firstName = document.getElementById('contact__firstName').value;
+  const lastName = document.getElementById('contact__lastName').value;
+  const email = document.getElementById('contact__email').value;
+  const phone = document.getElementById('contact__phone').value;
+  const comment = document.getElementById('contact__comment').value;
+  document.getElementById('modalName').innerText = firstName;
+  document.getElementById('modalLastName').innerText = lastName;
+  document.getElementById('modalEmail').innerText = email;
+  document.getElementById('modalPhone').innerText = phone;
+  document.getElementById('modalComment').innerText = comment;
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.add('modal--hidden');
+  document.getElementById('modal-box').classList.add('modal__box--hidden');
+  document.body.style.overflow = 'scroll';
+}
+
+function resetForm(){
+  form.reset();
+
+  inputs.forEach((input) => {
+    input.style.border = '1px solid #D3DBE7';
+  });
+
+  textareas.forEach((input) => {
+    input.style.border = '1px solid #D3DBE7';
+  });
+
+  document.getElementById('asterisk').style.visibility = "visible";
+}
+
+function done(){
+  closeModal();
+  resetForm();
 }
