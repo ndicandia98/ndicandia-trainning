@@ -1,16 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 // * { border: 1px solid tomato; }
 
 body {
-  background: #F2F4F8;
+  background: #f2f4f8;
 }
 
-body, ul, p {
+body,
+ul,
+p {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans";
-  color: #1D2121;
+  font-family: 'Open Sans';
+  color: #1d2121;
 }
 
 // utils
@@ -68,40 +70,40 @@ body, ul, p {
 }
 
 .btn {
-  background-color: #0073E9;
+  background-color: #0073e9;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   height: 40px;
   width: 171px;
-  border: 1px solid #0073E9;
+  border: 1px solid #0073e9;
   border-radius: 2px;
   margin-bottom: 81px;
   margin-top: 30px;
   outline: none;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:hover {
     background-color: white;
-    transition: all .2s;
+    transition: all 0.2s;
     transform: scale(1.05);
 
-    & >.news__view-txt,
-     .contact__submit-txt {
-      color: #0073E9;
+    & > .news__view-txt,
+    .contact__submit-txt {
+      color: #0073e9;
     }
   }
 
   &--done {
-    background: #1ED760;
-    border: 1px solid #1ED760;
+    background: #1ed760;
+    border: 1px solid #1ed760;
     &:hover {
       background: #1bb852;
       border: 1px solid #1bb852;
-      & >.news__view-txt,
-     .contact__submit-txt {
-      color: white;
-    }
+      & > .news__view-txt,
+      .contact__submit-txt {
+        color: white;
+      }
     }
   }
 }
@@ -113,7 +115,7 @@ body, ul, p {
 
 // navbar
 .main-nav {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
   height: 66px;
@@ -141,9 +143,8 @@ body, ul, p {
   &__select {
     border: none;
     outline: none;
-    font-family: "Open Sans";
+    font-family: 'Open Sans';
     font-size: 16px;
-    
   }
 
   &__link {
@@ -160,7 +161,7 @@ body, ul, p {
   &__user-img {
     width: 25px;
     height: 25px;
-    background-color: #9100AD;
+    background-color: #9100ad;
     border-radius: 50%;
   }
 
@@ -181,7 +182,7 @@ body, ul, p {
 
 // welcome
 .welcome {
-  background-color: #DFEFFD;
+  background-color: #dfeffd;
   padding: 13px 21px;
 
   &--hidden {
@@ -190,17 +191,13 @@ body, ul, p {
     opacity: 0;
     height: 0;
     transform: translateY(-20px) scale(0);
-    transition: 
-      opacity .1s,
-      transform 3s,
-      padding .5s .1s,
-      margin-top .5s,
-      height .5s;
+    transition: opacity 0.1s, transform 3s, padding 0.5s 0.1s, margin-top 0.5s,
+      height 0.5s;
   }
 
   &__txt {
-    color: #1D2121;
-    font-family: "Open Sans";
+    color: #1d2121;
+    font-family: 'Open Sans';
     font-size: 14px;
     letter-spacing: -0.08px;
     line-height: 19px;
@@ -210,7 +207,7 @@ body, ul, p {
     height: 16.19px;
     width: 16.19px;
     opacity: 0.8;
-    background-color: #282E2E;
+    background-color: #282e2e;
     border-radius: 50%;
     margin-left: 2px;
     cursor: pointer;
@@ -224,7 +221,7 @@ body, ul, p {
   &__rectangle {
     height: 10.56px;
     width: 1.41px;
-    background-color: #D8D8D8;
+    background-color: #d8d8d8;
     -webkit-transform: translateX(1.5px);
     transform: translateX(1.5px);
   }
@@ -247,8 +244,8 @@ body, ul, p {
   &__title-txt {
     margin-top: 25px;
     height: 41px;
-    color: #1D2121;
-    font-family: "Open Sans";
+    color: #1d2121;
+    font-family: 'Open Sans';
     font-size: 30px;
     letter-spacing: -0.16px;
     line-height: 41px;
@@ -268,7 +265,7 @@ body, ul, p {
     flex-wrap: wrap;
     height: 62rem;
     overflow: hidden;
-    transition: all .5s;
+    transition: all 0.5s;
     // box-shadow: 0 2px 2px 0 rgb(0 0 0 / 5%), 0 2px 4px 0 rgb(0 0 0 / 4%);
     background: white;
   }
@@ -288,8 +285,8 @@ body, ul, p {
   &__card-title {
     height: 84px;
     max-width: 402px;
-    color: #1D2121;
-    font-family: "Open Sans";
+    color: #1d2121;
+    font-family: 'Open Sans';
     font-size: 21px;
     font-weight: 600;
     letter-spacing: -0.11px;
@@ -300,8 +297,8 @@ body, ul, p {
   &__card-description {
     height: 132px;
     max-width: 403px;
-    color: #1D2121;
-    font-family: "Open Sans";
+    color: #1d2121;
+    font-family: 'Open Sans';
     font-size: 16px;
     letter-spacing: -0.09px;
     line-height: 22px;
@@ -311,8 +308,8 @@ body, ul, p {
   &__view-txt {
     height: 19px;
     width: 120px;
-    color: #FFFFFF;
-    font-family: "Open Sans";
+    color: #ffffff;
+    font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 600;
     letter-spacing: -0.08px;
@@ -349,7 +346,7 @@ body, ul, p {
 
     &:hover {
       & > .subcribe__btn-txt {
-        color: #000C26;
+        color: #000c26;
       }
     }
   }
@@ -365,8 +362,8 @@ body, ul, p {
   &__txt {
     height: 41px;
     width: 150px;
-    color: #1D2121;
-    font-family: "Open Sans";
+    color: #1d2121;
+    font-family: 'Open Sans';
     font-size: 30px;
     letter-spacing: -0.16px;
     line-height: 41px;
@@ -376,7 +373,7 @@ body, ul, p {
   &__form {
     margin-top: 23px;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     padding: 23px 42px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -394,8 +391,8 @@ body, ul, p {
 
   &__label {
     height: 18px;
-    color: #4B5353;
-    font-family: "Open Sans";
+    color: #4b5353;
+    font-family: 'Open Sans';
     font-size: 13px;
     letter-spacing: -0.07px;
     line-height: 18px;
@@ -406,12 +403,12 @@ body, ul, p {
     box-sizing: border-box;
     height: 35px;
     width: 397px;
-    border: 1px solid #D3DBE7;
+    border: 1px solid #d3dbe7;
     border-radius: 3px;
-    padding: .5rem;
-    font-family: "Open Sans";
+    padding: 0.5rem;
+    font-family: 'Open Sans';
     &:focus {
-      border:3px solid transparent;
+      border: 3px solid transparent;
     }
   }
 
@@ -425,15 +422,15 @@ body, ul, p {
     box-sizing: border-box;
     height: 21px;
     width: 21px;
-    border: 2px solid #BEC6C6;
+    border: 2px solid #bec6c6;
     border-radius: 2px;
     cursor: pointer;
   }
 
   &__send-txt {
     height: 22px;
-    color: #1D2121;
-    font-family: "Open Sans";
+    color: #1d2121;
+    font-family: 'Open Sans';
     font-size: 16px;
     letter-spacing: -0.09px;
     line-height: 22px;
@@ -452,8 +449,8 @@ body, ul, p {
 
   &__submit-txt {
     height: 19px;
-    color: #FFFFFF;
-    font-family: "Open Sans";
+    color: #ffffff;
+    font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 600;
     letter-spacing: -0.08px;
@@ -467,7 +464,7 @@ body, ul, p {
   &__error-msg {
     background: rgb(250, 125, 125);
     margin: 0 42px;
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: 8px;
 
     &--hidden {
@@ -481,7 +478,6 @@ body, ul, p {
 
 // modal contact
 .modal {
-
   &--hidden {
     position: absolute;
     top: -9999px;
@@ -495,7 +491,7 @@ body, ul, p {
     top: 0;
     background: black;
     z-index: 2;
-    opacity: .8;
+    opacity: 0.8;
   }
 
   &__box {
@@ -510,12 +506,12 @@ body, ul, p {
     bottom: 0;
     background: white;
     z-index: 3;
-    
+
     &--hidden {
       position: absolute;
     }
   }
-  
+
   &__button {
     place-items: flex-end;
   }
@@ -524,7 +520,7 @@ body, ul, p {
     border: none;
     background: transparent;
     font-size: 20px;
-    font-family: "Open Sans";
+    font-family: 'Open Sans';
     cursor: pointer;
     outline: none;
   }
@@ -534,10 +530,10 @@ body, ul, p {
   }
 
   &__title {
-    color: #1ED760;
+    color: #1ed760;
     font-size: 30px;
     font-weight: bold;
-    font-family: "Open Sans";
+    font-family: 'Open Sans';
     margin: auto;
   }
 
@@ -548,17 +544,17 @@ body, ul, p {
   &__info-item {
     font-size: 20px;
     font-weight: bold;
-    font-family: "Open Sans";
-    margin-bottom: .5rem;
-    
+    font-family: 'Open Sans';
+    margin-bottom: 0.5rem;
+
     &--thin {
       font-weight: 100;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    
+
     &--comment {
       font-weight: 100;
       margin-bottom: 0;
@@ -567,15 +563,13 @@ body, ul, p {
     }
   }
 
-  &__info-comment {
-    // margin-bottom: 0;
-  }
+  // &__info-comment {
+  //   margin-bottom: 0;
+  // }
 }
-
 
 // responsive
 @media (max-width: 1439px) {
-
   .main-nav {
     padding: 0 125px;
     width: calc(100vw - 250px);
@@ -607,20 +601,18 @@ body, ul, p {
 }
 
 @media (max-width: 1200px) {
-
   .contact {
     width: calc(100vw - 250px);
   }
 
   .subscribe {
-
     &__content {
       margin-left: calc(250px / 2);
     }
   }
 }
 
-@media (min-width:900px) and (max-width: 1200px){
+@media (min-width: 900px) and (max-width: 1200px) {
   .content {
     width: calc(100vw - 200px);
   }
@@ -628,18 +620,17 @@ body, ul, p {
     &__card {
       margin: 41px 25px;
       max-width: 300px;
-  }
+    }
   }
 }
 
 @media (max-width: 768px) {
-
   .main-nav {
     padding: 0 1rem;
     width: calc(100vw - 2rem);
 
     &__item {
-      margin: 0 .5rem;
+      margin: 0 0.5rem;
     }
 
     &__logo {
@@ -660,16 +651,16 @@ body, ul, p {
   }
 
   .news {
-
-    &__cards {
-      // height: 58rem;
-    }
+    // &__cards {
+    //   height: 58rem;
+    // }
 
     &__card {
       margin: 30px 15px;
     }
 
-    &__card-title, .news__card-description {
+    &__card-title,
+    .news__card-description {
       width: auto;
     }
   }
