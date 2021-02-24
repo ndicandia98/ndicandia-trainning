@@ -74,17 +74,36 @@ body, ul, p {
   margin-bottom: 81px;
   margin-top: 30px;
   outline: none;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    background-color: white;
+    transition: all .2s;
+
+    & >.news__view-txt,
+     .contact__submit-txt {
+      color: #0073E9;
+    }
+  }
+}
+
+.btn-txt {
+  color: white;
 }
 // end utils
 
 // navbar
 .main-nav {
-  padding: 1rem;
   background-color: #FFFFFF;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
-  padding: 0 250px;
   height: 66px;
+  position: fixed;
+  top: 0;
+  width: calc(100vw - 500px);
+  padding: 0 250px;
+  z-index: 1;
 
   &__list {
     display: -webkit-box;
@@ -106,6 +125,7 @@ body, ul, p {
     outline: none;
     font-family: "Open Sans";
     font-size: 16px;
+    
   }
 
   &__link {
@@ -138,13 +158,27 @@ body, ul, p {
   margin: auto;
   height: auto;
   width: calc(100vw - 500px);
-  margin-top: 38px;
+  margin-top: calc(38px + 66px);
 }
 
 // welcome
 .welcome {
   background-color: #DFEFFD;
   padding: 13px 21px;
+
+  &--hidden {
+    padding: 0;
+    margin-top: -40px;
+    opacity: 0;
+    height: 0;
+    transform: translateY(-20px) scale(0);
+    transition: 
+      opacity .1s,
+      transform 3s,
+      padding .5s .1s,
+      margin-top .5s,
+      height .5s;
+  }
 
   &__txt {
     color: #1D2121;
@@ -161,6 +195,7 @@ body, ul, p {
     background-color: #282E2E;
     border-radius: 50%;
     margin-left: 2px;
+    cursor: pointer;
   }
 
   &__x-shape {
@@ -180,6 +215,12 @@ body, ul, p {
     -webkit-transform: rotate(270deg) translateX(0);
     transform: rotate(270deg) translateX(0);
   }
+
+  &__close-button {
+    border: none;
+    background: none;
+    outline: none;
+  }
 }
 // welcome end
 
@@ -194,6 +235,13 @@ body, ul, p {
     letter-spacing: -0.16px;
     line-height: 41px;
     text-align: center;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  &__title-dinamic {
+    margin-left: 1rem;
+    font-weight: 600;
   }
 
   &__cards {
@@ -258,6 +306,33 @@ body, ul, p {
 .subscribe {
   height: 576px;
   margin-bottom: 66px;
+  background-image: url('../assets/subscribe-background.jpg');
+  background-size: cover;
+
+  &__content {
+    margin-left: 250px;
+    color: white;
+  }
+
+  &__title {
+    font-size: 30px;
+  }
+
+  &__description {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__btn {
+    border: 1px solid white;
+    background: transparent;
+
+    &:hover {
+      & > .subcribe__btn-txt {
+        color: #000C26;
+      }
+    }
+  }
 }
 // subcribe end
 
@@ -312,11 +387,12 @@ body, ul, p {
     width: 397px;
     border: 1px solid #D3DBE7;
     border-radius: 3px;
+    padding: .5rem;
   }
 
   &__input--large {
     height: 88px;
-    width: auto;
+    width: auto !important;
   }
 
   &__send-input {
@@ -360,6 +436,7 @@ body, ul, p {
 
   .main-nav {
     padding: 0 125px;
+    width: calc(100vw - 250px);
   }
   .content {
     width: calc(100vw - 250px);
@@ -392,12 +469,32 @@ body, ul, p {
   .contact {
     width: calc(100vw - 250px);
   }
+
+  .subscribe {
+
+    &__content {
+      margin-left: calc(250px / 2);
+    }
+  }
+}
+
+@media (min-width:900px) and (max-width: 1200px){
+  .content {
+    width: calc(100vw - 200px);
+  }
+  .news {
+    &__card {
+      margin: 41px 25px;
+      max-width: 300px;
+  }
+  }
 }
 
 @media (max-width: 768px) {
 
   .main-nav {
     padding: 0 1rem;
+    width: calc(100vw - 2rem);
 
     &__item {
       margin: 0 .5rem;
@@ -422,6 +519,10 @@ body, ul, p {
 
   .news {
 
+    &__cards {
+      // height: 58rem;
+    }
+
     &__card {
       margin: 30px 15px;
     }
@@ -434,12 +535,43 @@ body, ul, p {
   .subscribe {
     height: 425px;
     background-position-x: -190px;
+
+    &__content {
+      margin-left: 42px;
+    }
   }
   .contact {
     width: auto;
 
     &__input {
       width: auto;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .main-nav {
+    &__select {
+      width: 5rem;
+    }
+  }
+
+  .news {
+    &__title-txt {
+      font-size: 22px;
+    }
+
+    &__cards {
+      margin-top: 0;
+    }
+  }
+
+  .subscribe {
+    &__title {
+      font-size: 25px;
+    }
+    &__description-txt {
+      font-size: 11px;
     }
   }
 }

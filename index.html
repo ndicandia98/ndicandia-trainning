@@ -15,8 +15,12 @@
         </div>
         <ul class="main-nav__list">
             <li class="util__grid-y util__align-center main-nav__item">
-                <select name="Sections" id="" class="main-nav__select">
-                    <option value="Sections" selected>Sections</option>
+                <select name="Sections" id="select-sections" class="main-nav__select">
+                    <option value="business">Business</option>
+                    <option value="entertainment" selected>Entertainment</option>
+                    <option value="economics">Economics</option>
+                    <option value="technology">Technology</option>
+                    <option value="innovation">Innovation</option>
                 </select>
                 <div class="arrow"></div>
             </li>
@@ -39,7 +43,7 @@
     <!-- content -->
     <div class="content">
         <!-- welcome section -->
-        <div class="welcome util__grid-y util__align-center">
+        <div id="welcome-alert" class="welcome util__grid-y util__align-center">
             <div class="util__grid-x">
                 <p class="welcome__txt">
                     Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
@@ -47,12 +51,14 @@
                 <!-- x button -->
                 <div class="util__grid-y util__align-center util__full">
                     <div class="util__grid-x util__align-end">
-                        <div class="welcome__circle util__grid-x util__align-center">
-                            <div class="util__grid-x welcome__x-shape">
-                                <div class="welcome__rectangle"></div>
-                                <div class="welcome__rectangle welcome__rectangle--aux"></div>
+                        <button class="welcome__close-button" onclick="closeWelcome()">
+                            <div class="welcome__circle util__grid-x util__align-center">
+                                <div class="util__grid-x welcome__x-shape">
+                                    <div class="welcome__rectangle"></div>
+                                    <div class="welcome__rectangle welcome__rectangle--aux"></div>
+                                </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -61,24 +67,34 @@
         <!-- news section -->
         <section class="news util__grid-y">
             <div class="util__grid-x util__align-start">
-                <p class="news__title-txt">Top news</p>
+                <h1 class="news__title-txt">Top news</h1>
+                <h1 id="dinamicTitle" class="news__title-txt news__title-dinamic">Entertainment</h1>
             </div>
             <!-- news cards -->
             <div class="news__cards util__grid-x util__align-center">
 
             </div>
             <div class="util__grid-x util__align-center">
-                <button id="showMore" class="btn">
+                <button id="showMore" class="btn" onclick="showMore()">
                     <p class="news__view-txt">View more stories</p>
                 </button>
             </div>
         </section>
     </div>
+
     <!-- subscribe section -->
-    <section 
-        class="subscribe" 
-        style="background-image: url('assets/subscribe-background.jpg'); background-size: cover;"
-    >
+    <section class="subscribe util__grid-y util__align-center">
+        <div class="subscribe__content">
+            <h2 class="subscribe__title">Subscribe to our newsletter</h2>
+            <div class="util__grid-y subcribe__description">
+                <span class="subscribe__description-txt">Subscribe to our newsletter to receive weekly digests</span>
+                <span class="subscribe__description-txt">of the best and most ground-breaking news. Also</span>
+                <span class="subscribe__description-txt">receive a discount on your monthly subscription.</span>
+            </div>
+            <button class="btn subscribe__btn">
+                <p class="btn-txt subcribe__btn-txt">Subscribe</p>
+            </button>
+        </div>
     </section>
 
     <!-- contact section -->
@@ -87,37 +103,74 @@
             <p class="contact__txt util__grid-x">Contact Us</p>
         </div>
         <!-- inputs -->
-        <div class="contact__form  util__grid-x util__align-center">
+        <form id="contact__form" class="contact__form  util__grid-x util__align-center">
+            <!-- first name -->
             <div class="contact__form-item util__grid-y ">
                 <p class="contact__label">First Name</p>
-                <input class="contact__input" type="text">
+                <input 
+                    id="contact__firstName"
+                    name="firstName"
+                    class="contact__input"
+                    type="text"
+                >
             </div>
+
+            <!-- last name -->
             <div class="contact__form-item util__grid-y">
                 <p class="contact__label">Last Name</p>
-                <input class="contact__input" type="text">
+                <input 
+                    id="contact__lastName"
+                    name="lastName"
+                    class="contact__input"
+                    type="text"
+                >
             </div>
+
+            <!-- email -->
             <div class="contact__form-item util__grid-y ">
                 <p class="contact__label">Email</p>
-                <input class="contact__input" type="text">
+                <input
+                    id="contact__email"
+                    name="email"
+                    class="contact__input"
+                    type="email"
+                >
             </div>
+
+            <!-- phone -->
             <div class="contact__form-item util__grid-y">
                 <p class="contact__label">Phone number</p>
-                <input class="contact__input" type="text">
+                <input 
+                    id="contact__phone"
+                    class="contact__input" 
+                    type="tel"
+                    name="phone"
+                    required
+                >
             </div>
+
+            <!-- comment -->
             <div class="contact__form-item contact__form-item--large util__grid-y util__full">
                 <p class="contact__label">Comment</p>
-                <input class="contact__input contact__input--large" type="text">
+                <textarea
+                    id="contact__comment"
+                    class="contact__input contact__input--large"
+                    type="textarea"
+                    name="comment"
+                ></textarea>
             </div>
+
+            <!-- checkbox -->
             <div class="contact__send util__grid-x">
-                <input class="contact__send-input" type="checkbox" name="" id="">
+                <input class="contact__send-input" type="checkbox" name="" id="sendNews">
                 <div class="util__grid-y util__align-center">
                     <p class="contacts__send-txt">Send me emails about breaking news and promotions.</p>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="util__grid-x util__align-center">
-            <button class="btn contact__btn-submit">
-                <p class="contact__submit-txt">View more stories</p>
+            <button class="btn contact__btn-submit" type="submit" onclick="submit()">
+                <p class="contact__submit-txt">Submit form</p>
             </button>
         </div>
     </section>

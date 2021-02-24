@@ -68,15 +68,36 @@ body, ul, p {
   margin-bottom: 81px;
   margin-top: 30px;
   outline: none;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.btn:hover {
+  background-color: white;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.btn:hover > .news__view-txt,
+.btn:hover .contact__submit-txt {
+  color: #0073E9;
+}
+
+.btn-txt {
+  color: white;
 }
 
 .main-nav {
-  padding: 1rem;
   background-color: #FFFFFF;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
-  padding: 0 250px;
   height: 66px;
+  position: fixed;
+  top: 0;
+  width: calc(100vw - 500px);
+  padding: 0 250px;
+  z-index: 1;
 }
 
 .main-nav__list {
@@ -129,12 +150,25 @@ body, ul, p {
   margin: auto;
   height: auto;
   width: calc(100vw - 500px);
-  margin-top: 38px;
+  margin-top: calc(38px + 66px);
 }
 
 .welcome {
   background-color: #DFEFFD;
   padding: 13px 21px;
+}
+
+.welcome--hidden {
+  padding: 0;
+  margin-top: -40px;
+  opacity: 0;
+  height: 0;
+  -webkit-transform: translateY(-20px) scale(0);
+          transform: translateY(-20px) scale(0);
+  -webkit-transition: opacity .1s, padding .5s .1s, margin-top .5s, height .5s, -webkit-transform 3s;
+  transition: opacity .1s, padding .5s .1s, margin-top .5s, height .5s, -webkit-transform 3s;
+  transition: opacity .1s, transform 3s, padding .5s .1s, margin-top .5s, height .5s;
+  transition: opacity .1s, transform 3s, padding .5s .1s, margin-top .5s, height .5s, -webkit-transform 3s;
 }
 
 .welcome__txt {
@@ -152,6 +186,7 @@ body, ul, p {
   background-color: #282E2E;
   border-radius: 50%;
   margin-left: 2px;
+  cursor: pointer;
 }
 
 .welcome__x-shape {
@@ -172,6 +207,12 @@ body, ul, p {
   transform: rotate(270deg) translateX(0);
 }
 
+.welcome__close-button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
 .news__title-txt {
   margin-top: 25px;
   height: 41px;
@@ -181,6 +222,13 @@ body, ul, p {
   letter-spacing: -0.16px;
   line-height: 41px;
   text-align: center;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.news__title-dinamic {
+  margin-left: 1rem;
+  font-weight: 600;
 }
 
 .news__cards {
@@ -243,6 +291,31 @@ body, ul, p {
 .subscribe {
   height: 576px;
   margin-bottom: 66px;
+  background-image: url("../assets/subscribe-background.jpg");
+  background-size: cover;
+}
+
+.subscribe__content {
+  margin-left: 250px;
+  color: white;
+}
+
+.subscribe__title {
+  font-size: 30px;
+}
+
+.subscribe__description {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.subscribe__btn {
+  border: 1px solid white;
+  background: transparent;
+}
+
+.subscribe__btn:hover > .subcribe__btn-txt {
+  color: #000C26;
 }
 
 .contact {
@@ -296,11 +369,12 @@ body, ul, p {
   width: 397px;
   border: 1px solid #D3DBE7;
   border-radius: 3px;
+  padding: .5rem;
 }
 
 .contact__input--large {
   height: 88px;
-  width: auto;
+  width: auto !important;
 }
 
 .contact__send-input {
@@ -340,6 +414,7 @@ body, ul, p {
 @media (max-width: 1439px) {
   .main-nav {
     padding: 0 125px;
+    width: calc(100vw - 250px);
   }
   .content {
     width: calc(100vw - 250px);
@@ -367,11 +442,25 @@ body, ul, p {
   .contact {
     width: calc(100vw - 250px);
   }
+  .subscribe__content {
+    margin-left: calc(250px / 2);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .content {
+    width: calc(100vw - 200px);
+  }
+  .news__card {
+    margin: 41px 25px;
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 768px) {
   .main-nav {
     padding: 0 1rem;
+    width: calc(100vw - 2rem);
   }
   .main-nav__item {
     margin: 0 .5rem;
@@ -398,11 +487,32 @@ body, ul, p {
     height: 425px;
     background-position-x: -190px;
   }
+  .subscribe__content {
+    margin-left: 42px;
+  }
   .contact {
     width: auto;
   }
   .contact__input {
     width: auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .main-nav__select {
+    width: 5rem;
+  }
+  .news__title-txt {
+    font-size: 22px;
+  }
+  .news__cards {
+    margin-top: 0;
+  }
+  .subscribe__title {
+    font-size: 25px;
+  }
+  .subscribe__description-txt {
+    font-size: 11px;
   }
 }
 /*# sourceMappingURL=style.css.map */
