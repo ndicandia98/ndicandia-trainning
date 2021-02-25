@@ -263,6 +263,7 @@ p {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background: white;
+  max-width: 940px;
 }
 
 .news__card {
@@ -368,6 +369,7 @@ p {
   -ms-flex-pack: justify;
   justify-content: space-between;
   background: white;
+  max-width: calc(940px - 84px);
 }
 
 .contact__form-item {
@@ -428,7 +430,6 @@ p {
 }
 
 .contact__btn {
-  background: white;
   margin-bottom: 6rem;
 }
 
