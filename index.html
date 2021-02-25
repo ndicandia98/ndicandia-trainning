@@ -9,34 +9,40 @@
 	</head>
 	<body>
 		<!-- navbar -->
-		<nav class="main-nav util__grid-x">
-			<div class="main-nav__logo util__grid-y util__align-center">
-				<img src="assets/logo-1.svg" alt="" />
-			</div>
-			<ul class="main-nav__list">
-				<li class="util__grid-y util__align-center main-nav__item">
-					<select name="Sections" id="select-sections" class="main-nav__select">
-						<option value="business">Business</option>
-						<option value="entertainment" selected>Entertainment</option>
-						<option value="economics">Economics</option>
-						<option value="technology">Technology</option>
-						<option value="innovation">Innovation</option>
-					</select>
-					<div class="arrow"></div>
-				</li>
-				<li class="util__grid-y util__align-center main-nav__item">
-					<a href="#" class="main-nav__link">Editorial</a>
-				</li>
-				<li class="util__grid-y util__align-center main-nav__item">
-					<a href="#" class="main-nav__link">Contact us</a>
-				</li>
-			</ul>
-			<div class="main-nav__user-container util__grid-y util__align-center">
-				<div class="util__grid-x util__align-end">
-					<div class="main-nav__user-img util__grid-x util__align-center">
-						<p class="main-nav__user-img-txt util__grid-y util__align-center">
-							JS
-						</p>
+		<nav class="main-nav">
+			<div class="main-nav__container util__grid-x">
+				<div class="main-nav__logo util__grid-y util__align-center">
+					<img src="assets/logo-1.svg" alt="" />
+				</div>
+				<ul class="main-nav__list">
+					<li class="util__grid-y util__align-center main-nav__item">
+						<select
+							name="Sections"
+							id="select-sections"
+							class="main-nav__select"
+						>
+							<option value="business">Business</option>
+							<option value="entertainment" selected>Entertainment</option>
+							<option value="economics">Economics</option>
+							<option value="technology">Technology</option>
+							<option value="innovation">Innovation</option>
+						</select>
+						<div class="arrow"></div>
+					</li>
+					<li class="util__grid-y util__align-center main-nav__item">
+						<a href="#" class="main-nav__link">Editorial</a>
+					</li>
+					<li class="util__grid-y util__align-center main-nav__item">
+						<a href="#" class="main-nav__link">Contact us</a>
+					</li>
+				</ul>
+				<div class="main-nav__user-container util__grid-y util__align-center">
+					<div class="util__grid-x util__align-end">
+						<div class="main-nav__user-img util__grid-x util__align-center">
+							<p class="main-nav__user-img-txt util__grid-y util__align-center">
+								JS
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -45,25 +51,27 @@
 		<!-- content -->
 		<div class="content">
 			<!-- welcome section -->
-			<div id="welcome-alert" class="welcome util__grid-y util__align-center">
-				<div class="util__grid-x">
-					<p class="welcome__txt">
-						Welcome to the new look of News.com. Keep scrolling to discover
-						interesting new features and news.
-					</p>
-					<!-- x button -->
-					<div class="util__grid-y util__align-center util__full">
-						<div class="util__grid-x util__align-end">
-							<button class="welcome__close-button" onclick="closeWelcome()">
-								<div class="welcome__circle util__grid-x util__align-center">
-									<div class="util__grid-x welcome__x-shape">
-										<div class="welcome__rectangle"></div>
-										<div
-											class="welcome__rectangle welcome__rectangle--aux"
-										></div>
+			<div class="util__align-center util__grid-x">
+				<div id="welcome-alert" class="welcome util__grid-y util__align-center">
+					<div class="util__grid-x">
+						<p class="welcome__txt">
+							Welcome to the new look of News.com. Keep scrolling to discover
+							interesting new features and news.
+						</p>
+						<!-- x button -->
+						<div class="util__grid-y util__align-center util__full">
+							<div class="util__grid-x util__align-end">
+								<button class="welcome__close-button" onclick="closeWelcome()">
+									<div class="welcome__circle util__grid-x util__align-center">
+										<div class="util__grid-x welcome__x-shape">
+											<div class="welcome__rectangle"></div>
+											<div
+												class="welcome__rectangle welcome__rectangle--aux"
+											></div>
+										</div>
 									</div>
-								</div>
-							</button>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -71,11 +79,13 @@
 
 			<!-- news section -->
 			<section class="news util__grid-y">
-				<div class="util__grid-x util__align-start">
-					<h1 class="news__title-txt">Top news</h1>
-					<h1 id="dinamicTitle" class="news__title-txt news__title-dinamic">
-						Entertainment
-					</h1>
+				<div class="util__align-center util__grid-x">
+					<div class="news__title util__grid-x util__align-start">
+						<h1 class="news__title-txt">Top news</h1>
+						<h1 id="dinamicTitle" class="news__title-txt news__title-dinamic">
+							Entertainment
+						</h1>
+					</div>
 				</div>
 				<!-- news cards -->
 				<div class="util__grid-x util__align-center">

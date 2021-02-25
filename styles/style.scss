@@ -125,6 +125,13 @@ p {
 	padding: 0 250px;
 	z-index: 1;
 
+	&__container {
+		width: 100%;
+		height: 100%;
+		max-width: 940px;
+		margin: auto;
+	}
+
 	&__list {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -184,6 +191,8 @@ p {
 .welcome {
 	background-color: #dfeffd;
 	padding: 13px 21px;
+	width: 100%;
+	max-width: calc(940px - 42px);
 
 	&--hidden {
 		padding: 0;
@@ -241,6 +250,11 @@ p {
 
 // news
 .news {
+	&__title {
+		width: 100%;
+		max-width: 940px;
+	}
+
 	&__title-txt {
 		margin-top: 25px;
 		height: 41px;
@@ -440,8 +454,10 @@ p {
 	}
 
 	&__btn {
-		// background: white;
+		background: white;
 		margin-bottom: 6rem;
+		width: 100%;
+		max-width: 940px;
 	}
 
 	&__btn-submit {
@@ -598,6 +614,10 @@ p {
 
 		&__input {
 			width: auto;
+		}
+
+		&__btn {
+			width: calc(940px - 409px);
 		}
 	}
 }
