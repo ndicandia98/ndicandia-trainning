@@ -6,15 +6,15 @@ let allowsClicks;
 let clicks = 0;
 let apiSections = {
 	business:
-		'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95d89889601244a6a5754469720098b6',
+		'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95d89889601244a6a5754469720098b6',
 	entertainment:
-		'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=95d89889601244a6a5754469720098b6',
+		'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=95d89889601244a6a5754469720098b6',
 	economics:
-		'https://newsapi.org/v2/everything?domains=wsj.com&apiKey=95d89889601244a6a5754469720098b6',
+		'http://newsapi.org/v2/everything?domains=wsj.com&apiKey=95d89889601244a6a5754469720098b6',
 	technology:
-		'https://newsapi.org/v2/everything?q=apple&from=2021-02-22&to=2021-02-22&sortBy=popularity&apiKey=95d89889601244a6a5754469720098b6',
+		'http://newsapi.org/v2/everything?q=apple&from=2021-02-22&to=2021-02-22&sortBy=popularity&apiKey=95d89889601244a6a5754469720098b6',
 	innovation:
-		'https://newsapi.org/v2/everything?q=tesla&from=2021-01-23&sortBy=publishedAt&apiKey=95d89889601244a6a5754469720098b6',
+		'http://newsapi.org/v2/everything?q=tesla&from=2021-01-23&sortBy=publishedAt&apiKey=95d89889601244a6a5754469720098b6',
 };
 window.onload = connection(apiSections.entertainment);
 
