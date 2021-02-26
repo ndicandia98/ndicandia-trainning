@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import CardGrid from 'emerald-ui/lib/CardGrid';
 import Card from 'emerald-ui/lib/Card';
 
@@ -10,53 +9,36 @@ class News extends React.Component {
 	// const cardsContainer
 	state = {
 		articles: [],
-		// news: {
-		// 	firstClick: true,
-		// 	cardsContainer: document.getElementsByClassName('news__cards')[0],
-		// 	elementStyle: window.getComputedStyle(this.state.news.cardsContainer),
-		// 	elementHeight: this.state.news.elementStyle.getPropertyValue('height'),
-		// 	clicks: 0,
-		// 	allowsClicks: 0,
-		// 	newHeight: 0,
-		// },
 	};
 	componentDidMount() {
 		this.axiosConection();
 	}
 	axiosConection = () => {
-		axios({
-			method: 'GET',
-			url:
-				'http://newsapi.org/v2/everything?domains=wsj.com&apiKey=95d89889601244a6a5754469720098b6',
-		})
-			.then(res => {
-				const data = res.data.articles;
-				console.log('data', data);
-				this.setState({
-					articles: data,
-					// news: {
-					// 	allowsClicks: data.length / 4 - 1,
-					// },
+		const axios = require('axios').default;
+		const getApi = () => {
+			axios
+				.get(
+					'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=95d89889601244a6a5754469720098b6'
+				)
+				.then(res => {
+					this.setState({
+						articles: res.data.articles,
+					});
+					console.log(this.state);
+				})
+				.catch(e => {
+					console.log(e);
 				});
-				console.log(this.state);
-			})
-			.catch(err => console.log(err));
+		};
+		getApi();
 	};
+
 	handleClick = e => {
 		this.state.news.firstClick = true;
 		if (this.state.news.firstClick) {
 			this.heightIncrement = parseInt(this.state.news.elementHeight);
 		}
 		this.state.news.firstClick = false;
-		// let newHeight = parseInt(this.state.news.elementHeight);
-		// newHeight += this.heightIncrement + 120;
-
-		// if (clicks < allowsClicks) {
-		// 	cardsContainer.style.height = `${newHeight}px`;
-		// 	clicks++;
-		// } else {
-		// 	alert('I dont have more news for you');
-		// }
 	};
 
 	render() {

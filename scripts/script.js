@@ -6,15 +6,15 @@ let allowsClicks;
 let clicks = 0;
 let apiSections = {
 	business:
-		'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95d89889601244a6a5754469720098b6',
+		'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95d89889601244a6a5754469720098b6',
 	entertainment:
-		'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=95d89889601244a6a5754469720098b6',
+		'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=95d89889601244a6a5754469720098b6',
 	economics:
-		'http://newsapi.org/v2/everything?domains=wsj.com&apiKey=95d89889601244a6a5754469720098b6',
+		'https://newsapi.org/v2/everything?domains=wsj.com&apiKey=95d89889601244a6a5754469720098b6',
 	technology:
-		'http://newsapi.org/v2/everything?q=apple&from=2021-02-22&to=2021-02-22&sortBy=popularity&apiKey=95d89889601244a6a5754469720098b6',
+		'https://newsapi.org/v2/everything?q=apple&from=2021-02-22&to=2021-02-22&sortBy=popularity&apiKey=95d89889601244a6a5754469720098b6',
 	innovation:
-		'http://newsapi.org/v2/everything?q=tesla&from=2021-01-23&sortBy=publishedAt&apiKey=95d89889601244a6a5754469720098b6',
+		'https://newsapi.org/v2/everything?q=tesla&from=2021-01-23&sortBy=publishedAt&apiKey=95d89889601244a6a5754469720098b6',
 };
 window.onload = connection(apiSections.entertainment);
 
@@ -24,9 +24,9 @@ function connection(apiUrl) {
 		method: 'GET',
 		url: apiUrl,
 	})
-		.then((res) => {
+		.then(res => {
 			data = res.data.articles;
-			this.articles = data.map((article) => {
+			this.articles = data.map(article => {
 				articles.push({
 					img: article.urlToImage,
 					url: article.url,
@@ -38,7 +38,7 @@ function connection(apiUrl) {
 			fillNews();
 			articles = [];
 		})
-		.catch((err) => console.log(err));
+		.catch(err => console.log(err));
 }
 
 //html data
@@ -203,7 +203,7 @@ var fields = {
 	checkbox: false,
 };
 
-const validateForm = (e) => {
+const validateForm = e => {
 	switch (e.target.name) {
 		case 'firstName':
 			validateField(expressions.name, e.target, 'firstName');
@@ -234,12 +234,12 @@ const validateField = (expresion, input, field) => {
 	}
 };
 
-inputs.forEach((input) => {
+inputs.forEach(input => {
 	input.addEventListener('keyup', validateForm);
 	input.addEventListener('blur', validateForm);
 });
 
-textareas.forEach((input) => {
+textareas.forEach(input => {
 	input.addEventListener('keyup', validateForm);
 	input.addEventListener('blur', validateForm);
 });
@@ -300,11 +300,11 @@ function closeModal() {
 function resetForm() {
 	form.reset();
 
-	inputs.forEach((input) => {
+	inputs.forEach(input => {
 		input.style.border = '1px solid #D3DBE7';
 	});
 
-	textareas.forEach((input) => {
+	textareas.forEach(input => {
 		input.style.border = '1px solid #D3DBE7';
 	});
 
