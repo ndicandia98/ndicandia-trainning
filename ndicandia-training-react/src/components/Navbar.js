@@ -10,7 +10,6 @@ import Navbar from 'emerald-ui/lib/Navbar';
 import './styles/Navbar/Navbar.css';
 
 import newsLogo from '../images/logo-1.svg';
-import News from '../components/News';
 
 class OwnNavbar extends React.Component {
 	state = {
@@ -72,8 +71,6 @@ class OwnNavbar extends React.Component {
 						onChange={handleChange(state)}
 						title={this.state.dropDownValue}
 					>
-						{/* HERE  */}
-
 						<DropdownItem
 							eventKey="1"
 							onClick={e =>
@@ -85,9 +82,6 @@ class OwnNavbar extends React.Component {
 							<Icon name="business" style={{ fontSize: '24px' }} />
 							<span id="dropdown-1">Business</span>
 						</DropdownItem>
-
-						{/* HERE */}
-
 						<DropdownItem
 							eventKey="2"
 							onClick={e =>

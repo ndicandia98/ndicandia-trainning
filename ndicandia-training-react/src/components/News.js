@@ -14,15 +14,9 @@ class News extends React.Component {
 		url:
 			'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95d89889601244a6a5754469720098b6',
 	};
-	handleChange(state) {
+	handleChange = state => {
 		console.log('handle change', state.sectionSelected);
-	}
-	// changeUrl(url) {
-	// 	this.setState({
-	// 		url: url,
-	// 	});
-	// 	console.log('change url news', this.state);
-	// }
+	};
 	componentDidMount() {
 		this.axiosConection();
 	}
