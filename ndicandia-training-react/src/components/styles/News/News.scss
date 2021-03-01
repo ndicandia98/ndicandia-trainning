@@ -2,8 +2,9 @@
 .eui-card-flex-container {
 	background-color: white;
 	max-width: 940px;
-	height: 875px;
+	height: auto;
 	overflow: hidden;
+	transition: all 0.5s;
 }
 .eui-card {
 	width: 48vw;
